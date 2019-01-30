@@ -9,3 +9,6 @@ THIS CODE USES :
 - JQuery 3.3.1 	- For Bootstrap
 - Moment js  	- Parse, validate, manipulate, and display dates and times in JavaScript.
 
+
+You can try it downloading files and open index.html with a browser.
+
