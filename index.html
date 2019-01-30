@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Test Schedule Week</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" 	content="width=device-width, initial-scale=1">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+
+		<link rel="icon" 		href="./assets/img/favicon.ico">		
+		<link rel="stylesheet" 	href="./assets/css/bootstrap_4.2.1.css">
+		<link rel="stylesheet" 	href="./assets/css/schedule_week/schedule_week.css">
+	</head>
+	<body>
+		<div id="id_cm_calendari" class="mb-2">
+			 
+		</div>
+		
+		<script src="./assets/js/moment/moment.2.23.0.min.js"></script>
+		<script src="./assets/js/moment/locale/es.js"></script>
+		 
+		<script src="./assets/js/jquery-3.3.1.min.js"></script>
+		<script src="./assets/js/bootstrap_4.2.1.js"></script>
+		<script data-name="schedule-week" src="./assets/js/schedule_week/schedule_week_class.js"></script>
+		<script>
+			var g_obj_SCHEDULE_class	= null;
+
+			$( document ).ready(function() 
+			{
+				var l_parameters = {
+					cfg_data_inicial					: moment(),
+					cfg_num_pixels_cell_height_px		: 16,
+					cfg_num_minuts_interval				: 30,
+					cfg_event_accions 					: event_schedule_action,
+					cfg_num_cells_height_default		: 4,
+					cfg_bool_allow_aproximacions		: true,
+					cfg_event_click_element				: event_click_element,
+					cfg_number_of_days					: 7
+				};
+			
+				g_obj_SCHEDULE_class = new Caset_Class ('id_cm_calendari');
+				
+				g_obj_SCHEDULE_class.cm_inicialitzar(l_parameters, event_schedule_loaded);
+			});
+			
+
+			function event_schedule_loaded(p_id_container)
+			{
+				if (p_id_container)
+				{
+					if (p_id_container == "id_cm_calendari")
+					{
+						g_obj_SCHEDULE_class._prepare_objects();
+						
+						var l_json_data = g_obj_SCHEDULE_class.cm_get_random_jsonschedules();
+						g_obj_SCHEDULE_class.cm_set_schedules(l_json_data);
+						g_obj_SCHEDULE_class.cm_show_schedules();
+					}	
+				}
+			}
+			
+			 
+			function event_click_element(p_id_container, p_id_element, p_index_of_jason_data)
+			{
+				if (p_id_container == "id_cm_calendari")
+				{
+					var l_data = g_obj_SCHEDULE_class.cm_get_schedules();
+					if (l_data[p_index_of_jason_data])
+					{
+						alert(l_data[p_index_of_jason_data].id + " " + l_data[p_index_of_jason_data].text);
+					}
+				}
+			}
+
+			function event_schedule_action(p_container_id, p_action_name, p_moment_date)
+			{
+				alert(p_container_id + " " + p_action_name + " " + p_moment_date);
+				
+				if (
+					(p_action_name == "NEXT_WEEK") ||
+					(p_action_name == "PREVIOUS_WEEK") ||
+					(p_action_name == "TODAY") ||
+					(p_action_name == "THIS_WEEK") ||
+					(p_action_name == "INPUT-DATE-CHANGED") 
+					)
+				{
+					 
+
+					//GET NEW DATA
+				}
+			}
+	
+		</script>
+	</body>
+</html>
