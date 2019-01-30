@@ -1,0 +1,57 @@
+
+<!--
+	XXXX_ will be replaced by id of container to allow multiple schedules in the same page
+-->
+<div>
+
+	<div class="container-fluid">
+		<div class="row m-1">
+			<div class="col col-md-auto "><h4><span class="align-middle">Schedule Week</span></h4></div>
+			
+			<div class="col col-md-auto">
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-secondary" id="XXXX_id_cm_calendari_bt_accio_anterior">Previous</button>
+					<button type="button" class="btn btn-secondary" id="XXXX_id_cm_calendari_bt_accio_avui">Today</button>
+					<button type="button" class="btn btn-success"   id="XXXX_id_cm_calendari_bt_accio_semana">This Week</button>
+					<button type="button" class="btn btn-secondary" id="XXXX_id_cm_calendari_bt_accio_seguent">Next</button>
+				</div>
+			</div>
+			
+			<div class="col col-md-auto ">
+				<form class="form-inline">
+					<input type="date" class="form-control mb-2 mr-sm-2" id="XXXX_id_cm_calendari_input_date" required>
+				</form>
+			</div>
+			
+			<div class="col col-md-auto ">
+				<h3><span class="badge badge-info align-middle" id="XXXX_id_cm_calendari_span_count">&nbsp;</span></h3>
+			</div>
+
+			<div class="col col-md-auto">
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-warning" id="XXXX_id_cm_calendari_bt_accio_netejar">Clear</button>
+					<button type="button" class="btn btn-warning" id="XXXX_id_cm_calendari_bt_accio_emplenar">Fill</button>
+				</div>
+			</div>
+
+			<div class="col col-md-auto ">
+				<div class="spinner-border text-warning spinner-border-sm" role="status" id="XXXX_id_cm_calendari_spinner" >
+					<span class="sr-only">Loading...</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			
+			<div class="col cls_cm_div_columna" id="id_cm_div_columna"  >
+					<div class="row cls_cm_div_header_columna_dia"></div>
+					<div class="row cls_cm_div_header_columna_hores"></div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
